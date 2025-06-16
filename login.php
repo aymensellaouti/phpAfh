@@ -17,5 +17,3 @@ if(isset($_GET['error'])) {
     cin: <input name="cin" type="file" class="form-control">
     <button type="submit" class="btn btn-primary">login</button>
 </form>
-</body>
-</html>

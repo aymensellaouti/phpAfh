@@ -45,5 +45,4 @@
             <?php endforeach ?> 
         </ol>
     </div>
-</body>
-</html>
+<?php include './fragments/footer.php'; ?>

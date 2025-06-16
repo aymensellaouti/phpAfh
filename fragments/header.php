@@ -6,4 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$pageTitle ?? 'AFH' ?></title>
 </head>
-<body></body>
+<body>
+    
+<div class="container">
