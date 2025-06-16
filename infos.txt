@@ -1,0 +1,5 @@
+0- Aller sur https://github.com/aymensellaouti
+1- on clone le répo Github : git clone https://github.com/aymensellaouti/phpAfh.git
+2- si package.json modifié lancer npm i
+3- Changer de branche
+4- commencer à travailler
