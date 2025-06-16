@@ -4,16 +4,27 @@
     //var_dump($GLOBALS);
     $users = ["user1" => 'aymen', "user2" =>'rchid'];
     $users["user3"] = 'Mohamed';
+    // var_dump(getdate());
+    $x = 7;
+    function double(&$element) {
+        $element = $element * 2;
+    }
+    // function extractArrayByType(array $tab, string $type) {
+    //     $fonctioEliBechTesta3melha = "is_$type";
+    //     if ($fonctioEliBechTesta3melha($tab[0]))
+    // }
+    double($x);
+    echo $x;
+    function somme(...$args) {
+        $sum = 0;
+        foreach($args as $element) {
+            $sum+=$element;
+        }
+        echo $sum;
+    }
+    somme(1,2,3,4);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>first</title>
-</head>
-<body>
+    <?php include './fragments/header.php' ?>
     <div>
       <!-- itha kan annee paire fama offre sinon ma famech -->
        <?php if(!$annee % 2) { ?>
