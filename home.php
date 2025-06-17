@@ -13,7 +13,7 @@ function kifkif($obj1, $obj2, $bethabt = false): bool {
 $pageTitme = "Accueil";
 include 'isAuthenticated.php'; 
 include './fragments/header.php';  
-include_once 'class/user.php';
+include_once 'class/User.php';
 $user = new User('sonia');
 $sonia = clone $user;
 echo kifkif($user, $sonia, true);
