@@ -11,11 +11,13 @@
         Nincrementiw el nombre eb ka3ba
 */
 // 1 récupériw el session
-session_start();
+//session_start();
+include_once 'class/Session.php';
+$session = new Session();
 /*
 2 nthabtou ech fiha
 */
-    if(!isset($_SESSION['nbVisite'])) {
+    if(!$session->has('nbVisite')) {
         /*21 Kani fargha (ma3naha awle mara)
         Bech nraheb bih
         n3abiwha bel nombreDeVisite
@@ -23,16 +25,16 @@ session_start();
         //Bech nraheb bih
         $message = "Bienvenu c'est votre première visite :D";
         //n3abiwha bel nombreDeVisite
-        $_SESSION['nbVisite']=1;
+        $session->set('nbVisite',1);
     } else {
         /*
             22 Kani m3abya (néeme mara)
             Nketeblou el message
             Nincrementiw el nombre eb ka3ba
         */
-        $nbVisite = $_SESSION['nbVisite'] + 1;
+        $nbVisite = $session->get('nbVisite') + 1;
         $message = "Merci pour votre fidélité c'est votre $nbVisite visites";
-        $_SESSION['nbVisite']=$nbVisite;
+        $session->set('nbVisite',$nbVisite);
     }
 include './fragments/header.php';
 ?>
