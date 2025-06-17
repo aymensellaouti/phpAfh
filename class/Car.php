@@ -1,12 +1,13 @@
 <?php 
 
 class Car {
-    private string $brand;
-    private string $color;
-    private int $speed = 0;
-    private int $strengh = 0;
-    
-    
+
+
+    public function __construct(
+        private $brand = 'fiesta', 
+        private $color = 'red', 
+        private $speed = 0, 
+        private $strengh = 4) {}
 
     /**
      * Get the value of strengh
@@ -87,4 +88,21 @@ class Car {
 
         return $this;
     }
+
+    /**
+     * Additionne deux entiers.
+     * 
+     * @param int $a Le premier entier.
+     * 
+     * @param int $b Le deuxième entier. * 
+     * @return int La somme des deux nombres. * 
+     * @throws InvalidArgumentException Si l'un des paramètres n'est pas un entier. 
+     * */
+    function addition($a, $b) {    
+        if (!is_int($a) || !is_int($b)) {        
+            throw new InvalidArgumentException("Les paramètres doivent être des entiers.");    
+        }    
+        return $a + $b;
+    }
+
 }
