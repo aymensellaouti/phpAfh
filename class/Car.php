@@ -7,8 +7,18 @@ class Car {
         private $brand = 'fiesta', 
         private $color = 'red', 
         private $speed = 0, 
-        private $strengh = 4) {}
+        private $strengh = 4,
+        private $maxSpeed = 200    
+    ) {}
 
+
+    function freiner($vitesse) {
+        $this->speed = (($this->speed - $vitesse) < 0) ? 0 : $this->speed - $vitesse;  
+    }
+    function accelerer($vitesse) {
+        $this->speed = (($this->speed + $vitesse) > $this->maxSpeed) ? $this->maxSpeed : $this->speed + $vitesse;  
+    }
+        
     /**
      * Get the value of strengh
      */ 
@@ -89,20 +99,11 @@ class Car {
         return $this;
     }
 
-    /**
-     * Additionne deux entiers.
-     * 
-     * @param int $a Le premier entier.
-     * 
-     * @param int $b Le deuxième entier. * 
-     * @return int La somme des deux nombres. * 
-     * @throws InvalidArgumentException Si l'un des paramètres n'est pas un entier. 
-     * */
-    function addition($a, $b) {    
-        if (!is_int($a) || !is_int($b)) {        
-            throw new InvalidArgumentException("Les paramètres doivent être des entiers.");    
-        }    
-        return $a + $b;
+     public function tableauDeBord() {
+        echo PHP_EOL."Je suis une voiture".PHP_EOL;
+        echo "Je suis de la marque {$this->getBrand()}. J'ai {$this->getStrengh()} cheveaux sous le capot.";
     }
+
+
 
 }
