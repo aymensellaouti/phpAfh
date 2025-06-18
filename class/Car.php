@@ -4,9 +4,9 @@ class Car {
 
 
     public function __construct(
-        private $brand = 'fiesta', 
-        private $color = 'red', 
-        private $speed = 0, 
+        public $brand = 'fiesta', 
+        public $color = 'red', 
+        public $speed = 0, 
         private $strengh = 4,
         private $maxSpeed = 200    
     ) {}
