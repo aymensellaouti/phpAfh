@@ -3,21 +3,24 @@
 // include_once 'class/Annuaire.php';
 // include_once 'class/Car.php';
 include_once 'autoloader.php';
-$annuaire = new Annuaire(10);
+// $annuaire = new Annuaire(10);
 
-$aymen = new Personne('aymen', '41', 23584455);
-$skander = new Personne('skander', '5', 2358);
-$annuaire->add($aymen);
-$annuaire->add($skander);
+// $aymen = new Personne('aymen', '41', 23584455);
+// $skander = new Personne('skander', '5', 2358);
+// $annuaire->add($aymen);
+// $annuaire->add($skander);
 
-$cars = [
-    new Car('Fiesta', 'grise', 150),
-    new Car('Agya', 'gris vcharbon', 110),
-    new Car('Mercedes Benz', 'Noir', 250)
-];
+// $cars = [
+//     new Car('Fiesta', 'grise', 150),
+//     new Car('Agya', 'gris vcharbon', 110),
+//     new Car('Mercedes Benz', 'Noir', 250)
+// ];
+$bdd = ConnexionBD::getInstance();
 
-$theads = ['brand', 'color', 'speed'];
-$data = $cars;
+$id = isset($_GET['id']) ?? 5;
+$sqlQuery = "select * from skill";
+$theads = ['id', 'designation'];
+$data = $bdd->query($sqlQuery)->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,7 +58,7 @@ $data = $cars;
                 <?php
                 foreach ($theads as $thead) :
                 ?>
-                <th><?= $element->{$thead} ?></th>
+                <th><?= $element[$thead] ?></th>
                     <?php
                     endforeach
                     ?>
