@@ -5,9 +5,9 @@ include_once 'autoloader.php';
 $bdd = ConnexionBD::getInstance();
 
 $id = isset($_GET['id']) ?? 5;
-$sqlQuery = "select * from skill";
 $theads = ['id', 'designation'];
-$data = $bdd->query($sqlQuery)->fetchAll(PDO::FETCH_ASSOC);
+$skillRepository = new SkillRepository();
+$data = $skillRepository->findAll();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -55,6 +55,9 @@ $data = $bdd->query($sqlQuery)->fetchAll(PDO::FETCH_ASSOC);
                 <th>
                     <a href="detailSkill.php?id=<?=$element['id'] ?>">
                         <i class="bi bi-info-circle"></i>
+                    </a>
+                    <a href="deleteSkill.php?id=<?=$element['id'] ?>">
+                        <i class="bi bi-trash2-fill"></i>
                     </a>
                 </th>
             </tr>

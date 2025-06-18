@@ -8,10 +8,9 @@ if (!isset($id)) {
     header('location:login.php');
 }
 
-$query = "select * from skill where id = :id";
-$request = $bdd->prepare($query);
-$request->execute(['id'=> $id]);
-$skill = $request->fetch(PDO::FETCH_OBJ);
+$skillRepository = new SkillRepository();
+$skill = $skillRepository->find($id);
+if (!$skill) header('location:skills.php');
 include('fragments/header.php');
 ?>
 <div class="card w-75 mb-3">
